@@ -31,4 +31,17 @@ function reset(){
 			ctx.fillRect(i*100+1, j*100+1, 98, 98);
 }
 
+function send(){
+	var letter = document.getElementById('letter');
+	//need regexp to check whether the letter is validate
+	var data = {
+		value: letter.value,
+		image: color
+	};
+	var content = JSON.stringify(data);
+	request = new XMLHttpRequest();
+	request.open('GET', 'uplode', true);
+	request.send();
+}
+
 can.onclick = clicked;
