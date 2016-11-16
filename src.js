@@ -40,8 +40,8 @@ function send(){
 	};
 	var content = JSON.stringify(data);
 	request = new XMLHttpRequest();
-	request.open('GET', 'uplode', true);
-	request.send();
+	request.open('POST', 'uplode', true);
+	request.send(content);
 }
 
 can.onclick = clicked;
