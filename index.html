@@ -3,15 +3,39 @@
 	<head>
 		<title>Collect Data</title>
 		<mtea charset='utf-8' />
+		<script type="text/javascript">
+			//var digit = '-1';
+		</script>
 	</head>
 
 	<body>
 		<h1>Collect Data</h1>
+		<p>
+			Please choose a digit, draw it below and click the send button to upload. If 
+			you want to redraw, just click reset.<br />
+			If you have any querstions, please contact me. At this stage, you are contributing to this dataset means you know who I am.<br />
+			So I won't leave my information here cause it's time consuming.<br />
+			By the way you can ask me for a treat. Thanks!
+		</p>
+		<input type='radio' name='digit' value='0' onclick="digit=this.value">0&nbsp;&nbsp;
+		<input type='radio' name='digit' value='1' onclick="digit=this.value">1&nbsp;&nbsp;
+		<input type='radio' name='digit' value='2' onclick="digit=this.value">2&nbsp;&nbsp;
+		<input type='radio' name='digit' value='3' onclick="digit=this.value">3&nbsp;&nbsp;
+		<input type='radio' name='digit' value='4' onclick="digit=this.value">4&nbsp;&nbsp;
+		<br />
+		<input type='radio' name='digit' value='5' onclick="digit=this.value">5&nbsp;&nbsp;
+		<input type='radio' name='digit' value='6' onclick="digit=this.value">6&nbsp;&nbsp;
+		<input type='radio' name='digit' value='7' onclick="digit=this.value">7&nbsp;&nbsp;
+		<input type='radio' name='digit' value='8' onclick="digit=this.value">8&nbsp;&nbsp;
+		<input type='radio' name='digit' value='9' onclick="digit=this.value">9&nbsp;&nbsp;
+		<br />
 		<canvas id='can' width='500' height='500'>this is a canvas</canvas>
 		<br />
 		<script type="text/javascript" src='src.js'></script>
+		<!--
 		letter:
 		<input type='text' id='letter' />
+		-->
 		<p>
 			<BUTTON onclick='send()'>DONE</BUTTON>
 			<BUTTON onclick='reset()'>RESET</BUTTON>

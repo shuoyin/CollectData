@@ -1,3 +1,4 @@
+var digit = '-1';
 var color = new Array(25);
 for(var i=0; i<25; i++) color[i]=255;
 
@@ -32,10 +33,10 @@ function reset(){
 }
 
 function send(){
-	var letter = document.getElementById('letter');
+	//var letter = document.getElementById('letter');
 	//need regexp to check whether the letter is validate
 	var data = {
-		value: letter.value,
+		value: digit,
 		image: color
 	};
 	var content = JSON.stringify(data);
