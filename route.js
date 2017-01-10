@@ -1,7 +1,7 @@
 function route(pathname, response, handler, postdata){
 	console.log('request for '+pathname);
 	if(postdata){
-		handler['/upload'](response, postdata);
+		handler[pathname](response, postdata);
 		return;
 	}
 	if(handler[pathname]) handler[pathname](response);

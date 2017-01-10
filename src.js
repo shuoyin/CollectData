@@ -35,14 +35,30 @@ function reset(){
 function send(){
 	//var letter = document.getElementById('letter');
 	//need regexp to check whether the letter is validate
+	date = new Date();
 	var data = {
 		value: digit,
-		image: color
+		image: color,
+		time: date.toString()
 	};
+	var mes = {
+		message: document.getElementById('message').value,
+		time: date.toString()
+	}
 	var content = JSON.stringify(data);
 	request = new XMLHttpRequest();
-	request.open('POST', 'uplode', true);
+	request.onreadystatechange=function(){
+		if (request.readyState==4 && request.status==200)
+			window.alert(request.responseText);
+	}
+	request.open('POST', 'uploadData', true);
 	request.send(content);
+	if(mes.message){
+		content = JSON.stringify(mes);
+		mesReq = new XMLHttpRequest();
+		mesReq.open('POST', 'uploadMes', true);
+		mesReq.send(content);
+	}
 }
 
 can.onclick = clicked;

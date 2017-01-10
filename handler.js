@@ -30,17 +30,25 @@ function on404(response){
 	response.end();
 }
 
-function onupload(response, postdata){
+function onupload(response, postdata, filename){
 	response.writeHead(200, {'Content-Type': 'text/plain'});
-	fs.readFile('data.json', 'utf8', function(err, data){
+	fs.readFile(filename, 'utf8', function(err, data){
 		postdata = postdata.replace(/{/, '\n\t{\n\t\t');
 		postdata = postdata.replace(/}/, '\n\t}');
-		postdata = postdata.replace(/",/, '",\n\t\t');
+		postdata = postdata.replace(/,"/g, ',\n\t\t"');
 		data = data[0] + postdata + ',' + data.slice(1);
-		fs.writeFile('data.json', data);
+		fs.writeFile(filename, data);
 	});
 	response.write('Successfully upload');
 	response.end();
+}
+
+function onuploadData(response, postdata){
+	onupload(response, postdata, 'data.json');
+}
+
+function onuploadMes(response, postdata){
+	onupload(response, postdata, 'message.json');
 }
 
 var handler = {
@@ -48,7 +56,8 @@ var handler = {
 	'/index.html': onindex,
 	'/src.js': onsrcjs,
 	'/data.json': ondata,
-	'/upload': onupload,
+	'/uploadData': onuploadData,
+	'/uploadMes': onuploadMes,
 	'on404': on404
 }
 
